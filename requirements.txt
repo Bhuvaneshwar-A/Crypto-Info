@@ -1,9 +1,4 @@
-fastapi
-azure-functions
-mimesis
-aiohttp
-langchain_community
-langchain_cohere
-motor
-openai
-cohere
+streamlit
+plotly
+pandas
+numpy
