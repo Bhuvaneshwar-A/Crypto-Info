@@ -145,41 +145,29 @@ def display_tokenomics(data):
     """, unsafe_allow_html=True)
 
 def display_token_utility(data):
-    utility_info = data.get('utility_info', {})
-    
     st.markdown(f"""
         <div class="stMetric">
-            <strong>Tokens Locked:</strong> {utility_info.get('Tokens Locked', 'N/A')}
+            <strong>Tokens Locked:</strong> {data['utility_info']['Tokens Locked']:,}
         </div>
     """, unsafe_allow_html=True)
-    
-    staking_ratio = utility_info.get('Staking Ratio', 'N/A')
-    if isinstance(staking_ratio, (int, float)):
-        staking_ratio = f"{staking_ratio:.2%}"
     st.markdown(f"""
         <div class="stMetric">
-            <strong>Staking Ratio:</strong> {staking_ratio}
+            <strong>Staking Ratio:</strong> {data['utility_info']['Staking Ratio']:.2%}
         </div>
     """, unsafe_allow_html=True)
-    
     st.markdown(f"""
         <div class="stMetric">
-            <strong>Token Nature:</strong> {utility_info.get('Token Nature', 'N/A')}
+            <strong>Token Nature:</strong> {data['utility_info']['Token Nature']}
         </div>
     """, unsafe_allow_html=True)
-    
-    avg_trading_volume = utility_info.get('Average Trading Volume 24 hrs', 'N/A')
-    if isinstance(avg_trading_volume, (int, float)):
-        avg_trading_volume = f"${avg_trading_volume:,.2f}"
     st.markdown(f"""
         <div class="stMetric">
-            <strong>Average Trading Volume (24h):</strong> {avg_trading_volume}
+            <strong>Average Trading Volume (24h):</strong> ${data['utility_info']['Average Trading Volume 24 hrs']:,.2f}
         </div>
     """, unsafe_allow_html=True)
-    
     st.markdown(f"""
         <div class="stMetric">
-            <strong>Category:</strong> {utility_info.get('Category', 'N/A')}
+            <strong>Category:</strong> {data['utility_info']['Category']}
         </div>
     """, unsafe_allow_html=True)
 
